@@ -23,7 +23,6 @@ public class PessoaDAO extends ConexaoBD {
             stmt.executeUpdate();
 
             System.out.println("Pessoa inserida com sucesso");
-            conn.close();
             return true;
         } catch (SQLException e) {
             System.out.println("Erro: ");
@@ -82,7 +81,7 @@ public class PessoaDAO extends ConexaoBD {
                     conn.close();
                 }
             } catch (Exception e) {
-                System.out.println("Erro ao fechar os recursos: ");
+                System.out.println("Erro: ");
                 e.printStackTrace();
             }
         }
@@ -124,7 +123,7 @@ public class PessoaDAO extends ConexaoBD {
                     conn.close();
                 }
             } catch (Exception e) {
-                System.out.println("Erro ao fechar os recursos: ");
+                System.out.println("Erro: ");
                 e.printStackTrace();
             }
         }

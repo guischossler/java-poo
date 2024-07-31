@@ -3,7 +3,7 @@ package model;
 public class Pessoa {
     
     private String nome, sexo;
-    private int idade;
+    private int id, idade;
     
     public Pessoa() {
         
@@ -18,6 +18,14 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Pessoa{" + "nome=" + nome + ", sexo=" + sexo + ", idade=" + idade + '}';
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
