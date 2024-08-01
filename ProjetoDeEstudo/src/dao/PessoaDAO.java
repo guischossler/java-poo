@@ -4,6 +4,7 @@ import java.sql.Connection;
 import model.Pessoa;
 import db.ConexaoBD;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class PessoaDAO extends ConexaoBD {
 
@@ -85,6 +86,63 @@ public class PessoaDAO extends ConexaoBD {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void MostrarEmLista(ArrayList<Pessoa> p) {
+        System.out.println("#### PESSOAS ####");
+
+        for (int i = 0; i < p.size(); i++) {
+            System.out.println(p.get(i).toString());
+        }
+
+        System.out.println("#################");
+    }
+
+    public ArrayList<Pessoa> consultarTodos() {
+        ArrayList<Pessoa> ps = new ArrayList<>();
+
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = ConexaoBD.abrirConexao();
+            String sql = "SELECT * FROM pessoa";
+
+            stmt = conn.prepareStatement(sql);
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                Pessoa p = new Pessoa();
+                p.setId(rs.getInt("id"));
+                p.setNome(rs.getString("nome"));
+                p.setSexo(rs.getString("sexo"));
+                p.setIdade(rs.getInt("idade"));
+
+                ps.add(p);
+
+            }
+        } catch (SQLException e) {
+            System.out.println("Erro: ");
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (Exception e) {
+                System.out.println("Erro: ");
+                e.printStackTrace();
+            }
+        }
+
+        return ps;
     }
 
     public boolean consultar(int id) {

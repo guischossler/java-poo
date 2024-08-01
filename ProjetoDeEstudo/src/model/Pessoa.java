@@ -1,12 +1,12 @@
 package model;
 
 public class Pessoa {
-    
+
     private String nome, sexo;
     private int id, idade;
-    
+
     public Pessoa() {
-        
+
     }
 
     public Pessoa(String nome, String sexo, int idade) {
@@ -17,9 +17,12 @@ public class Pessoa {
 
     @Override
     public String toString() {
-        return "Pessoa{" + "nome=" + nome + ", sexo=" + sexo + ", idade=" + idade + '}';
+        return "\nid=" + id
+                + "\nnome=" + nome
+                + "\nsexo=" + sexo
+                + "\nidade=" + idade;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -51,5 +54,5 @@ public class Pessoa {
     public void setIdade(int idade) {
         this.idade = idade;
     }
-    
+
 }
