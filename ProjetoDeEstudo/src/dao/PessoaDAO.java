@@ -15,11 +15,14 @@ public class PessoaDAO extends ConexaoBD {
         try {
             conn = ConexaoBD.abrirConexao();
 
-            String sql = "INSERT INTO pessoa (nome, sexo, idade) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO pessoa (nome, sexo, telefone, email, dt_nascimento, ativo) VALUES (?, ?, ?, ?, ?, ?)";
             stmt = conn.prepareStatement(sql);
             stmt.setString(1, pessoa.getNome());
-            stmt.setString(2, pessoa.getSexo());
-            stmt.setInt(3, pessoa.getIdade());
+            stmt.setString(2, String.valueOf(pessoa.getSexo()));
+            stmt.setString(3, pessoa.getTelefone());
+            stmt.setString(4, pessoa.getEmail());
+            stmt.setString(5, pessoa.getDtNascimento());
+            stmt.setBoolean(6, pessoa.isAtivo());
 
             stmt.executeUpdate();
 
@@ -116,8 +119,11 @@ public class PessoaDAO extends ConexaoBD {
                 Pessoa p = new Pessoa();
                 p.setId(rs.getInt("id"));
                 p.setNome(rs.getString("nome"));
-                p.setSexo(rs.getString("sexo"));
-                p.setIdade(rs.getInt("idade"));
+                p.setSexo(rs.getString("sexo").charAt(0));
+                p.setTelefone(rs.getString("telefone"));
+                p.setEmail(rs.getString("email"));
+                p.setDtNascimento(rs.getString("dt_nascimento"));
+                p.setAtivo(rs.getBoolean("ativo"));
 
                 ps.add(p);
 

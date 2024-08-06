@@ -2,33 +2,33 @@ package model;
 
 public class Pessoa {
 
-    private String nome, sexo;
-    private int id, idade;
+    private String nome, telefone, email, dtNascimento;
+    private int id;
+    private char sexo;
+    private boolean ativo;
 
     public Pessoa() {
 
     }
 
-    public Pessoa(String nome, String sexo, int idade) {
+    public Pessoa(String nome, char sexo, String telefone, String email, String dtNascimento, boolean ativo) {
         this.nome = nome;
         this.sexo = sexo;
-        this.idade = idade;
+        this.telefone = telefone;
+        this.email = email;
+        this.dtNascimento = dtNascimento;
+        this.ativo = ativo;
     }
 
     @Override
     public String toString() {
-        return "\nid=" + id
-                + "\nnome=" + nome
-                + "\nsexo=" + sexo
-                + "\nidade=" + idade;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        return "\nId: " + id
+                + "\nNome: " + nome
+                + "\nSexo: " + sexo
+                + "\nTelefone: " + telefone
+                + "\nE-Mail: " + email
+                + "\nData Nasc.: " + dtNascimento
+                + "\nAtivo: " + ativo;
     }
 
     public String getNome() {
@@ -39,20 +39,52 @@ public class Pessoa {
         this.nome = nome;
     }
 
-    public String getSexo() {
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(String dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public char getSexo() {
         return sexo;
     }
 
-    public void setSexo(String sexo) {
+    public void setSexo(char sexo) {
         this.sexo = sexo;
     }
 
-    public int getIdade() {
-        return idade;
+    public boolean isAtivo() {
+        return ativo;
     }
 
-    public void setIdade(int idade) {
-        this.idade = idade;
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
 }

@@ -12,7 +12,7 @@ public abstract class ConexaoBD {
 
     public final static Connection abrirConexao() {
         try {
-            String url = "jdbc:postgresql://localhost/a";
+            String url = "jdbc:postgresql://localhost/teste";
             String user = "postgres";
             String password = "postgresql";
             conn = DriverManager.getConnection(url, user, password);
